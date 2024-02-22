@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.tsx', './index.html'],
   theme: {
     extend: {
+      aspectRatio: {
+        '4/3': '4 / 3',
+      },
       colors: {
         accent: {
           50: '#F3E7F1',
