@@ -1,6 +1,9 @@
 import { Button } from '@/components/button';
+import { RatingStars } from '@/components/ratingStars';
 
 export function HotelCard() {
+  const rating = 4;
+
   return (
     <article className="border-2 border-accent-50 divide-x-2 grid grid-cols-3 rounded-md w-full">
       <img
@@ -12,9 +15,7 @@ export function HotelCard() {
         <div className="flex flex-col">
           <div className="flex justify-between">
             <h3 className="font-bold text-4xl text-accent-500">Hotel Name</h3>
-            <p className="font-bold text-4xl tracking-widest">
-              &#x1F7CA;&#x1F7CA;&#x1F7CA;&#x1F7CA;&#x1F7CA;
-            </p>
+            <RatingStars rating={rating} />
           </div>
           <p>City - Country</p>
         </div>
