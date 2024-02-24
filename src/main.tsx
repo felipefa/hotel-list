@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider as URQLProvider } from 'urql';
 
+import { urqlClient } from '@/lib/urqlClient';
 import { App } from './app';
-import { urqlClient } from './urqlClient';
 
 import './index.css';
 

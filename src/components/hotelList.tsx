@@ -1,9 +1,11 @@
-import { gql, useQuery } from 'urql';
+import { useQuery } from 'urql';
 
 import { HotelCard } from '@/components/hotelCard';
+import { graphql } from '@/gql';
+import { Hotel } from '@/gql/graphql';
 
-const HotelCollectionQuery = gql`
-  query GetHotelCollectionQuery($limit: Int!, $skip: Int) {
+const HotelCollectionQuery = graphql(`
+  query GetHotelCollection($limit: Int!, $skip: Int) {
     hotelCollection(limit: $limit, skip: $skip) {
       limit
       skip
@@ -22,7 +24,7 @@ const HotelCollectionQuery = gql`
       }
     }
   }
-`;
+`);
 
 export function HotelList() {
   const [HotelCollectionQueryResult] = useQuery({
@@ -39,12 +41,13 @@ export function HotelList() {
 
   if (error) return <p>Oh no... {error.message}</p>;
 
-  const hotels = data?.hotelCollection.items;
-  console.log({ data, hotels });
+  const hotels = data?.hotelCollection?.items as Hotel[];
 
   return (
     <>
-      <HotelCard />
+      {hotels?.map((hotel) => (
+        <HotelCard key={hotel?.sys.id} hotel={hotel} />
+      ))}
     </>
   );
 }
