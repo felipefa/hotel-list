@@ -11,12 +11,21 @@ const HotelCollectionQuery = graphql(`
       skip
       total
       items {
-        country
         city
+        country
         description {
           json
         }
         endDate
+        imagesCollection {
+          items {
+            title
+            sys {
+              id
+            }
+            url
+          }
+        }
         name
         price
         rating
