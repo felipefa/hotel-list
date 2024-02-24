@@ -14,6 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n  query GetHotelCollection($limit: Int!, $skip: Int) {\n    hotelCollection(limit: $limit, skip: $skip) {\n      limit\n      skip\n      total\n      items {\n        country\n        city\n        description {\n          json\n        }\n        endDate\n        name\n        price\n        rating\n        startDate\n        sys {\n          id\n        }\n      }\n    }\n  }\n": types.GetHotelCollectionDocument,
+    "\n  query GetHotelReviews($hotelId: String!) {\n    reviewCollection(where: { hotel: { sys: { id: $hotelId } } }) {\n      limit\n      skip\n      total\n      items {\n        comment {\n          json\n        }\n        customer {\n          firstName\n          lastName\n        }\n        feedback\n        rating\n        sys {\n          id\n        }\n        title\n      }\n    }\n  }\n": types.GetHotelReviewsDocument,
 };
 
 /**
@@ -34,6 +35,10 @@ export function graphql(source: string): unknown;
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query GetHotelCollection($limit: Int!, $skip: Int) {\n    hotelCollection(limit: $limit, skip: $skip) {\n      limit\n      skip\n      total\n      items {\n        country\n        city\n        description {\n          json\n        }\n        endDate\n        name\n        price\n        rating\n        startDate\n        sys {\n          id\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetHotelCollection($limit: Int!, $skip: Int) {\n    hotelCollection(limit: $limit, skip: $skip) {\n      limit\n      skip\n      total\n      items {\n        country\n        city\n        description {\n          json\n        }\n        endDate\n        name\n        price\n        rating\n        startDate\n        sys {\n          id\n        }\n      }\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query GetHotelReviews($hotelId: String!) {\n    reviewCollection(where: { hotel: { sys: { id: $hotelId } } }) {\n      limit\n      skip\n      total\n      items {\n        comment {\n          json\n        }\n        customer {\n          firstName\n          lastName\n        }\n        feedback\n        rating\n        sys {\n          id\n        }\n        title\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetHotelReviews($hotelId: String!) {\n    reviewCollection(where: { hotel: { sys: { id: $hotelId } } }) {\n      limit\n      skip\n      total\n      items {\n        comment {\n          json\n        }\n        customer {\n          firstName\n          lastName\n        }\n        feedback\n        rating\n        sys {\n          id\n        }\n        title\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
