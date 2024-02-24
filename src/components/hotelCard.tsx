@@ -1,4 +1,5 @@
 import { Button } from '@/components/button';
+import { HotelDescription } from '@/components/hotelDescription';
 import { RatingStars } from '@/components/ratingStars';
 import { Hotel } from '@/gql/graphql';
 import { formatDate } from '@/utils/formatDate';
@@ -11,7 +12,7 @@ interface HotelCardProps {
 export function HotelCard({ hotel }: HotelCardProps) {
   const image =
     hotel.imagesCollection?.items?.[0]?.url ||
-    'https://placehold.co/533x400/F3E7F1/6A3460?font=open-sans&text=Image';
+    'https://placehold.co/533x400/F3E7F1/6A3460?font=open-sans&text=Hotel%20Image';
   const priceFormatted = formatPrice(hotel.price);
   const startDateFormatted = formatDate(hotel.startDate);
   const endDateFormatted = formatDate(hotel.endDate);
@@ -26,7 +27,7 @@ export function HotelCard({ hotel }: HotelCardProps) {
       <div className="col-span-2 flex flex-col p-6 space-y-6">
         <div className="flex flex-col">
           <div className="flex justify-between">
-            <h3 className="font-bold line-clamp-1 text-4xl text-accent-500">
+            <h3 className="font-bold line-clamp-1 leading-normal text-4xl text-accent-500">
               {hotel.name}
             </h3>
             <RatingStars rating={hotel.rating || 0} />
@@ -37,15 +38,7 @@ export function HotelCard({ hotel }: HotelCardProps) {
         </div>
 
         <div className="flex-1">
-          <p className="line-clamp-3 overflow-hidden">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            iure recusandae sequi fuga doloribus eos hic dolor molestias quo
-            ipsum placeat culpa pariatur sed, illum natus facilis delectus eum?
-            Quisquam, quod. Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit. Obcaecati iure recusandae sequi fuga doloribus eos hic dolor
-            molestias quo ipsum placeat culpa pariatur sed, illum natus facilis
-            delectus eum?
-          </p>
+          <HotelDescription hotel={hotel} />
         </div>
 
         <div className="flex justify-between">
