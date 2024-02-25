@@ -31,7 +31,7 @@ export function HotelDescription({ hotel }: HotelDescriptionProps) {
     : 'Read more...';
 
   return (
-    <div>
+    <>
       <p className={hotelDescriptionClassName}>{hotelDescriptionFormatted}</p>
       <button
         className="font-bold text-accent-500 text-sm md:text-base hover:underline"
@@ -39,6 +39,6 @@ export function HotelDescription({ hotel }: HotelDescriptionProps) {
       >
         {toggleDescriptionButtonLabel}
       </button>
-    </div>
+    </>
   );
 }

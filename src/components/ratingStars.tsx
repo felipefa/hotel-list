@@ -1,3 +1,4 @@
+import { Star } from '@phosphor-icons/react';
 import * as React from 'react';
 
 interface RatingStarsProps {
@@ -15,11 +16,16 @@ export function RatingStars({ rating }: RatingStarsProps) {
   );
 
   return (
-    <p className="font-bold lg:leading-normal text-xl sm:text-2xl lg:text-3xl xl:text-4xl md:tracking-widest text-accent-50">
+    <p
+      className="flex font-bold lg:leading-normal text-xl sm:text-2xl lg:text-3xl xl:text-4xl md:tracking-widest text-accent-50"
+      title={`${rating} stars rating`}
+    >
       {ratings.map((ratingItem) => (
-        <span key={ratingItem.value} className={ratingItem.className}>
-          &#x2605;
-        </span>
+        <Star
+          className={ratingItem.className}
+          key={ratingItem.value}
+          weight="fill"
+        />
       ))}
     </p>
   );

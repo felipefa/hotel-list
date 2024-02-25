@@ -1,4 +1,5 @@
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import { Minus, Plus } from '@phosphor-icons/react';
 import { useQuery } from 'urql';
 
 import { graphql } from '@/gql';
@@ -61,9 +62,9 @@ export function HotelReviews({ hotel }: HotelReviewsProps) {
               title={`${review.feedback} review`}
             >
               {review.feedback === 'positive' ? (
-                <span className="text-emerald-600">&#xFF0B;</span>
+                <Plus className="text-emerald-600" />
               ) : (
-                <span className="text-red-700">&#xFF0D;</span>
+                <Minus className="text-red-700" />
               )}
             </p>
             <div className="flex flex-1 flex-col space-y-4">

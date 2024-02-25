@@ -1,3 +1,4 @@
+import { CaretLeft, CaretRight, Circle } from '@phosphor-icons/react';
 import React from 'react';
 
 import { Asset } from '@/gql/graphql';
@@ -52,27 +53,28 @@ export function ImageCarousel({ imageAssets }: ImageCarouselProps) {
 
       <div className="absolute flex h-full items-center justify-between px-4 text-accent-500 text-xl top-0 w-full">
         <button
-          className="bg-accent-50/50 flex items-center justify-center pr-1 rounded-full shadow-accent-50 size-10 transition-colors hover:bg-accent-50 hover:shadow-2xl"
+          className="bg-accent-50/50 flex items-center justify-center rounded-full shadow-accent-50 size-10 transition-colors hover:bg-accent-50 hover:shadow-2xl"
           onClick={handleShowPreviousImage}
         >
-          &#x25C4;
+          <CaretLeft weight="bold" />
         </button>
         <button
-          className="bg-accent-50/50 flex items-center justify-center pl-1 rounded-full shadow-accent-50 size-10 transition-all hover:bg-accent-50 hover:shadow-2xl"
+          className="bg-accent-50/50 flex items-center justify-center rounded-full shadow-accent-50 size-10 transition-all hover:bg-accent-50 hover:shadow-2xl"
           onClick={handleShowNextImage}
         >
-          &#x25BA;
+          <CaretRight weight="bold" />
         </button>
       </div>
 
       <div className="absolute bottom-0 flex gap-3 justify-center opacity-50 py-4 w-full hover:opacity-100">
         {imageAssets.map((_, index) => (
-          <div
-            onClick={() => setImageIndex(index)}
-            key={'circle' + index}
+          <Circle
             className={`cursor-pointer rounded-full size-3 lg:size-4 transition-transform hover:scale-125 ${
-              index == imageIndex ? 'bg-accent-500' : 'bg-accent-50'
+              index == imageIndex ? 'text-accent-500' : 'text-accent-50'
             }`}
+            key={'circle' + index}
+            onClick={() => setImageIndex(index)}
+            weight="fill"
           />
         ))}
       </div>
