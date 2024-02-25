@@ -17,7 +17,7 @@ export function HotelDescription({ hotel }: HotelDescriptionProps) {
     () =>
       `${
         showFullDescription ? '' : 'line-clamp-3'
-      } overflow-hidden whitespace-pre-wrap`,
+      } overflow-hidden text-sm md:text-base whitespace-pre-wrap`,
     [showFullDescription]
   );
 
@@ -34,7 +34,7 @@ export function HotelDescription({ hotel }: HotelDescriptionProps) {
     <div>
       <p className={hotelDescriptionClassName}>{hotelDescriptionFormatted}</p>
       <button
-        className="font-bold text-accent-500 hover:underline"
+        className="font-bold text-accent-500 text-sm md:text-base hover:underline"
         onClick={handleToggleFullDescription}
       >
         {toggleDescriptionButtonLabel}

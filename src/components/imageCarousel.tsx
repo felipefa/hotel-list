@@ -30,7 +30,7 @@ export function ImageCarousel({ imageAssets }: ImageCarouselProps) {
   }
 
   return (
-    <div className="overflow-hidden relative">
+    <div className="h-full overflow-hidden relative">
       <div
         className="duration-40 ease-out flex h-full transition"
         style={{
@@ -70,7 +70,7 @@ export function ImageCarousel({ imageAssets }: ImageCarouselProps) {
           <div
             onClick={() => setImageIndex(index)}
             key={'circle' + index}
-            className={`cursor-pointer rounded-full size-4 transition-transform hover:scale-125 ${
+            className={`cursor-pointer rounded-full size-3 lg:size-4 transition-transform hover:scale-125 ${
               index == imageIndex ? 'bg-accent-500' : 'bg-accent-50'
             }`}
           />

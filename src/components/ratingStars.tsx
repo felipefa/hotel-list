@@ -15,10 +15,10 @@ export function RatingStars({ rating }: RatingStarsProps) {
   );
 
   return (
-    <p className="font-bold text-4xl tracking-widest text-accent-50">
+    <p className="font-bold lg:leading-normal text-xl sm:text-2xl lg:text-3xl xl:text-4xl md:tracking-widest text-accent-50">
       {ratings.map((ratingItem) => (
         <span key={ratingItem.value} className={ratingItem.className}>
-          &#x1F7CA;
+          &#x2605;
         </span>
       ))}
     </p>
