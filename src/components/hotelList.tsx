@@ -49,17 +49,18 @@ export function HotelList() {
 
   const { data, fetching, error } = HotelCollectionQueryResult;
 
-  if (fetching) return <p>Loading...</p>;
-
-  if (error) return <p>Oh no... {error.message}</p>;
-
   const hotels = data?.hotelCollection?.items as Hotel[];
 
   return (
     <>
-      {hotels?.map((hotel) => (
-        <HotelCard key={hotel?.sys.id} hotel={hotel} />
-      ))}
+      {fetching && <p className="text-center">Loading...</p>}
+
+      {error && <p className="text-center">Oh no, something went wrong...</p>}
+
+      {hotels?.length === 0 && <p className="text-center">No hotels found.</p>}
+
+      {Number(hotels?.length || 0) > 0 &&
+        hotels?.map((hotel) => <HotelCard key={hotel?.sys.id} hotel={hotel} />)}
     </>
   );
 }
