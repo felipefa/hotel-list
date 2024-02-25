@@ -3,8 +3,9 @@ import React from 'react';
 import { Button } from '@/components/button';
 import { HotelDescription } from '@/components/hotelDescription';
 import { HotelReviews } from '@/components/hotelReviews';
+import { ImageCarousel } from '@/components/imageCarousel';
 import { RatingStars } from '@/components/ratingStars';
-import { Hotel } from '@/gql/graphql';
+import { Asset, Hotel } from '@/gql/graphql';
 import { formatDate } from '@/utils/formatDate';
 import { formatPrice } from '@/utils/formatPrice';
 
@@ -18,9 +19,7 @@ export function HotelCard({ hotel }: HotelCardProps) {
     false
   );
 
-  const image =
-    hotel.imagesCollection?.items?.[0]?.url ||
-    'https://placehold.co/533x400/F3E7F1/6A3460?font=open-sans&text=Hotel%20Image';
+  const imageAssets = (hotel.imagesCollection?.items || []) as Asset[];
   const priceFormatted = formatPrice(hotel.price);
   const startDateFormatted = formatDate(hotel.startDate);
   const endDateFormatted = formatDate(hotel.endDate);
@@ -31,11 +30,8 @@ export function HotelCard({ hotel }: HotelCardProps) {
   return (
     <article className="border-2 border-accent-50 divide-accent-50 divide-y-2 overflow-hidden rounded-md w-full">
       <div className="divide-accent-50 divide-x-2 grid grid-cols-3">
-        <img
-          className="aspect-4/3 bg-accent-50 col-span-1 h-full object-cover self-center"
-          src={image}
-          alt="Hotel picture"
-        />
+        <ImageCarousel imageAssets={imageAssets} />
+
         <div className="col-span-2 flex flex-col p-6 space-y-6">
           <div className="flex flex-col">
             <div className="flex justify-between">
