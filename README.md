@@ -2,17 +2,25 @@
 
 This is a simple hotel list application that fetches hotel data from an API and displays it in a list. The user can also view reviews for each hotel.
 
-## Technologies Used
-
-- [React.js](https://reactjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Vite](https://vitejs.dev/)
 
 ## How to Run
 
 1. First install all dependencies: `npm i`
 2. Start the server: `npm run dev`
 3. Visit `http://localhost:5173/` in your browser.
+
+
+## Technologies Used
+
+- [React.js](https://reactjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [rich-text-plain-text-renderer](https://www.npmjs.com/package/@contentful/rich-text-plain-text-renderer)
+- [@phosphor-icons/react](https://phosphoricons.com/)
+- [GraphQL](https://graphql.org/)
+- [URQL](https://formidable.com/open-source/urql/)
+
 
 ## Assignment Description
 
@@ -28,6 +36,7 @@ If there are open questions, choose the most reasonable answers for yourself.
 Should there be problems with the API endpoint, contact us with a detailed bug
 description.
 
+
 ### The task
 
 Implement a result list for hotels.
@@ -37,6 +46,7 @@ Implement a result list for hotels.
 - When the user clicks on a „Show reviews“ button, the reviews should be loaded
   for this specific hotel and displayed in a list below the hotel information, but inside
   the hotel item container
+
 
 ### Additional requirements
 
