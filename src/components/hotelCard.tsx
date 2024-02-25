@@ -36,7 +36,7 @@ export function HotelCard({ hotel }: HotelCardProps) {
 
         <div className="col-span-3 md:col-span-2 flex flex-col p-4 md:p-6 space-y-6">
           <div className="flex flex-col">
-            <div className="flex justify-between">
+            <div className="flex items-center justify-between">
               <h3 className="font-bold line-clamp-1 xl:leading-normal text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-accent-500">
                 {hotel.name}
               </h3>
